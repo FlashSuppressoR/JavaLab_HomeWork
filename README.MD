@@ -1,0 +1,1 @@
+# This repository is intended for storing  _JavaLab_ homework
