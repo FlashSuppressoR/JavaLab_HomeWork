@@ -9,11 +9,11 @@ public class L1T1 {
 
     public static void main(String[] args) {
         textReader();
-        counter();
+        counterWords();
         printer();
     }
 
-    public static void counter(){
+    public static void counterWords(){
         for ( String word : wordsList) {
             Integer oldCount = occurrences.get(word);
             if ( oldCount == null ) {
@@ -23,7 +23,7 @@ public class L1T1 {
         }
     }
     public static void textReader(){
-        String filePath = new File("src/main/resources/input.txt").getAbsolutePath();
+        String filePath = new File("src/main/resources/inputFileL1T1.txt").getAbsolutePath();
         File inputFile = new File(filePath);
         BufferedReader reader = null;
         try {
