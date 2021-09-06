@@ -44,8 +44,10 @@ public class L1T1 {
         }
     }
     public static void printer(){
+        System.out.println("Различные слова из текста:\n");
         for(Map.Entry<String, Integer> word : occurrences.entrySet()){
             System.out.println(word.getKey() + " - " + word.getValue());
         }
+        System.out.println("\nКоличество различных слов в тексте: " + occurrences.size());
     }
 }
