@@ -3,23 +3,25 @@ package Lesson1.Task1;
 import java.io.*;
 import java.util.*;
 
-public class L1T1 {
+public class Reader {
     static List<String> wordsList = new ArrayList<>();
-    static Map<String, Integer> occurrences = new HashMap<>();
+    static Map<String, Integer> occurrenceRepeat = new HashMap<>();
+    static String text = "";
 
     public static void main(String[] args) {
         textReader();
-        counterWords();
+        splitter(text);
+        countWords();
         printer();
     }
 
-    public static void counterWords(){
+    public static void countWords(){
         for ( String word : wordsList) {
-            Integer oldCount = occurrences.get(word);
+            Integer oldCount = occurrenceRepeat.get(word);
             if ( oldCount == null ) {
                 oldCount = 0;
             }
-            occurrences.put(word, oldCount + 1);
+            occurrenceRepeat.put(word, oldCount + 1);
         }
     }
     public static void textReader(){
@@ -31,12 +33,13 @@ public class L1T1 {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String text = "";
         try {
             text = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static void splitter(String text){
         String[] words = text.split(" ");
         for(String word : words){
             String checkingWord = word.replaceAll("[^a-zA-Z\\s]","");
@@ -45,9 +48,9 @@ public class L1T1 {
     }
     public static void printer(){
         System.out.println("Различные слова из текста:\n");
-        for(Map.Entry<String, Integer> word : occurrences.entrySet()){
+        for(Map.Entry<String, Integer> word : occurrenceRepeat.entrySet()){
             System.out.println(word.getKey() + " - " + word.getValue());
         }
-        System.out.println("\nКоличество различных слов в тексте: " + occurrences.size());
+        System.out.println("\nКоличество различных слов в тексте: " + occurrenceRepeat.size());
     }
 }

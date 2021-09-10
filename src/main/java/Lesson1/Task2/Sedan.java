@@ -1,6 +1,7 @@
 package Lesson1.Task2;
 
 public class Sedan extends Car{
+
     public Sedan(String model, String releaseDate, String color, String engineTypes) {
         this.carModel = model;
         this.releaseDate = releaseDate;

@@ -30,7 +30,6 @@ public class Question {
         @Override
         public int compare(String o1, String o2) {
             return CharSequence.compare(o1, o2); /* Сортировка в алфавитном порядке (уникальность по equals) */
-//            return Integer.compare(o1.length(), o2.length()); /* Сортировка по длине  */
 //            return Integer.compare(o1.length(), o2.length()); /* Сортировка по длине (уникальность по длине) */
         }
     }

@@ -3,7 +3,6 @@ package Lesson1.Task2;
 import java.util.Objects;
 
 public abstract class Car {
-
     String carBrand = "Audi";
     String carModel;
     String releaseDate;
