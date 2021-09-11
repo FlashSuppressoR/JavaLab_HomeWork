@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class Randomizer {
-    private static List<Integer> listOfNumbs = new ArrayList<>();
+    private List<Integer> listOfNumbs = new ArrayList<>();
 
     public void randomNumbGenerator() throws EvenNumberException{
         System.out.println("Создаю три числа:");
@@ -23,13 +23,5 @@ public class Randomizer {
             }
         }
     }
-    public void start(){
-        try {
-            randomNumbGenerator();
-        } catch (EvenNumberException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getList().toString());
-            System.out.println(e.getNumber());
-        }
-    }
+
 }

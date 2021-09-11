@@ -14,10 +14,6 @@ public class EvenNumberException extends Exception{
         return listOfNumbs;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
     public EvenNumberException(String message, List list, int numb){
         super(message);
         number = numb;
