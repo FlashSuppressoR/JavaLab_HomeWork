@@ -15,40 +15,39 @@ public class Reader {
         printer();
     }
 
-    public static void countWords(){
-        for ( String word : wordsList) {
+    public static void countWords() {
+        for (String word : wordsList) {
             Integer oldCount = occurrenceRepeat.get(word);
-            if ( oldCount == null ) {
+            if (oldCount == null) {
                 oldCount = 0;
             }
             occurrenceRepeat.put(word, oldCount + 1);
         }
     }
-    public static void textReader(){
+
+    public static void textReader() {
         String filePath = new File("src/main/resources/inputFileL1T1.txt").getAbsolutePath();
         File inputFile = new File(filePath);
-        BufferedReader reader = null;
+
         try {
-            reader  = new BufferedReader(new FileReader(inputFile));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             text = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public static void splitter(String text){
+
+    public static void splitter(String text) {
         String[] words = text.split(" ");
-        for(String word : words){
-            String checkingWord = word.replaceAll("[^a-zA-Z\\s]","");
+        for (String word : words) {
+            String checkingWord = word.replaceAll("[^a-zA-Z\\s]", "");
             wordsList.add(checkingWord);
         }
     }
-    public static void printer(){
+
+    public static void printer() {
         System.out.println("Различные слова из текста:\n");
-        for (Map.Entry<String, Integer> word : occurrenceRepeat.entrySet()){
+        for (Map.Entry<String, Integer> word : occurrenceRepeat.entrySet()) {
             System.out.println(word.getKey() + " - " + word.getValue());
         }
         System.out.println("\nКоличество различных слов в тексте: " + occurrenceRepeat.size());

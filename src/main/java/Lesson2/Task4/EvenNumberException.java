@@ -2,11 +2,11 @@ package Lesson2.Task4;
 
 import java.util.List;
 
-public class EvenNumberException extends Exception{
+public class EvenNumberException extends Exception {
     private int number;
-    private  List<Integer> listOfNumbs;
+    private List<Integer> listOfNumbs;
 
-    public int getNumber(){
+    public int getNumber() {
         return number;
     }
 
@@ -14,7 +14,7 @@ public class EvenNumberException extends Exception{
         return listOfNumbs;
     }
 
-    public EvenNumberException(String message, List list, int numb){
+    public EvenNumberException(String message, List<Integer> list, int numb) {
         super(message);
         number = numb;
         listOfNumbs = list;

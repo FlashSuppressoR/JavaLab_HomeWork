@@ -9,12 +9,14 @@ public abstract class Car {
     String carColor;
     String enginesType;
 
-    public static void startEngine(){
+    public static void startEngine() {
         System.out.println("Заводит машину.");
     }
-    public static void turnOffEngine(){
+
+    public static void turnOffEngine() {
         System.out.println("Глушит машину.");
     }
+
     public abstract void reFuel();
 
     @Override
@@ -23,7 +25,7 @@ public abstract class Car {
         if (o == null || getClass() != o.getClass()) return false;
 
         Car car = (Car) o;
-        if (carModel != car.carModel) return false;
+        if (!carModel.equals(car.carModel)) return false;
         return Objects.equals(enginesType, car.enginesType);
     }
 
@@ -33,5 +35,4 @@ public abstract class Car {
         result = 31 * result + (carModel != null ? carModel.hashCode() : 0);
         return result;
     }
-
 }

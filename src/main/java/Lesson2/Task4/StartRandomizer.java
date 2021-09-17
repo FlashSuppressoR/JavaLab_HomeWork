@@ -7,8 +7,11 @@ public class StartRandomizer {
     }
     public static void start(){
         try {
-            new Randomizer().randomNumbGenerator();
-        } catch (EvenNumberException e) {
+            Randomizer randomizer = new Randomizer();
+            randomizer.randomNumbGenerator();
+            randomizer.checkIngList();
+        }
+        catch (EvenNumberException e) {
             System.out.println(e.getMessage());
             System.out.println(e.getList().toString());
             System.out.println(e.getNumber() + " - нас не устраивает!\nПробую ещё раз...\n");

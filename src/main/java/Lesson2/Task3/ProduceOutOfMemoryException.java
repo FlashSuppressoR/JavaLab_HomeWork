@@ -1,19 +1,23 @@
 package Lesson2.Task3;
 
-public class ProduceOutOfMemoryException {
-    static javassist.ClassPool cp = javassist.ClassPool.getDefault();
+import javassist.CannotCompileException;
 
-    public static void main(String[] args) throws Exception{
-        try{
-            for (int i = 0; ; i++) {
-                Class c = cp.makeClass("task3.MyClass" + i).toClass();
-            }
-        }
-        catch (OutOfMemoryError ex){
-            log(ex);
-        }
+public class ProduceOutOfMemoryException {
+
+    public static void main(String[] args) throws Exception {
+        produceException();
     }
-    private static void log (OutOfMemoryError ex){
-        System.out.println("Catch : " + ex.getClass().getName());  /* Иногда успевает отработать */
+
+    private static void produceException() throws CannotCompileException {
+        javassist.ClassPool cp = javassist.ClassPool.getDefault();
+        try {
+            int counter = 1;
+            while (true) {
+                Class c = cp.makeClass("task3.MyClass" + counter).toClass();
+                counter++;
+            }
+        } catch (OutOfMemoryError error) {
+            System.out.println("Catch : " + error.getClass().getName());
+        }
     }
 }
