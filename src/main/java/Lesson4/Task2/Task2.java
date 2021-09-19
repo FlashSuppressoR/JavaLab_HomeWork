@@ -23,8 +23,7 @@ public class Task2 {
 
     public static void main(String[] args) {
         initPredicates();
-
-        System.out.println(disjunctAll(predicates).getClass().getName());
+        disjunctAll(predicates);
     }
 
     public static void initPredicates() {
@@ -36,11 +35,10 @@ public class Task2 {
     }
 
     public static IntPredicate disjunctAll(List<IntPredicate> predicates) {
-        IntPredicate predicate = predicates.get(0);
-        for (int i = 1; i < predicates.size(); i++) {
-            predicate = predicate.or(predicates.get(i));
-
+        IntPredicate result = i -> false;
+        for (IntPredicate p: predicates) {
+            result = p.or(result);
         }
-        return predicate;
+        return result;
     }
 }

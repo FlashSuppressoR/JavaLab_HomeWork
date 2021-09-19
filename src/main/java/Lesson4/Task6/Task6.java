@@ -14,17 +14,32 @@ import java.util.function.Function;
  * Order of arguments concatenation: first, third, second, fourth.
  */
 public class Task6 {
-    static int firstIntArg = 3;
-    static int secondIntArg = 3;
-    static int thirdIntArg = 4;
-    static String firstStringArg = "first";
-    static String secondStringArg = "first";
-    static String thirdStringArg = "first";
-    static String fourthStringArg = "first";
+    static int firstIntArg;
+    static int secondIntArg;
+    static int thirdIntArg;
+    static String firstStringArg;
+    static String secondStringArg;
+    static String thirdStringArg;
+    static String fourthStringArg;
 
     public static void main(String[] args) {
+        initFirstFunction();
         System.out.println(firstFunction());
+        initSecondFunction();
         System.out.println(secondFunction());
+    }
+
+    public static void initFirstFunction(){
+        firstIntArg = 3;
+        secondIntArg = 3;
+        thirdIntArg = 4;
+    }
+
+    public static void initSecondFunction(){
+        firstStringArg = "first";
+        secondStringArg = "second";
+        thirdStringArg = "third";
+        fourthStringArg = "fourth";
     }
 
     public static Integer firstFunction(){
