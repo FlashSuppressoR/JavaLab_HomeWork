@@ -3,11 +3,6 @@ package Lesson2.Task4;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
-
 public class RandomizerTest {
 
     @Test

@@ -13,6 +13,7 @@ public class Task1Test {
 
         Assertions.assertTrue(Task1.checkAllValuesAreDifferentPredicate());
     }
+
     @Test
     public void checkAllValuesAreDifferentPredicateTestFalse() {
         Task1.a = 1;
