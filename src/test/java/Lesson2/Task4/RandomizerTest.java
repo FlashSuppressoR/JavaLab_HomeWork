@@ -16,7 +16,7 @@ public class RandomizerTest {
     }
 
     @Test
-    public void checkIngList() {
+    public void checkIngListTest() {
         Randomizer randomizer = new Randomizer();
         randomizer.randomNumbGenerator();
         try {
@@ -26,7 +26,7 @@ public class RandomizerTest {
             String actualResult = "Lesson2.Task4.EvenNumberException";
 
             // ИДЕ Всегда просит поменять assertTrue на assertEquals. Надо ли?
-            Assertions.assertTrue(catchResult.equals(actualResult));
+            Assertions.assertEquals(catchResult, actualResult);
         }
     }
 }

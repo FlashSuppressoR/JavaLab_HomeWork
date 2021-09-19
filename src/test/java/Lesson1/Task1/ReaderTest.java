@@ -8,7 +8,7 @@ import java.util.Map;
 public class ReaderTest {
 
     @Test
-    public void countWords() {
+    public void countWordsTest() {
         Reader.wordsList.add("Hello");
         Reader.wordsList.add("Hello");
         Reader.wordsList.add("My");
@@ -23,18 +23,13 @@ public class ReaderTest {
         int countWordsResult3 = Reader.occurrenceRepeat.get("World");
         int actualResult3 = 2;
 
-        Assertions.assertTrue(countWordsResult1 == actualResult1);
-        Assertions.assertTrue(countWordsResult2 == actualResult2);
-        Assertions.assertTrue(countWordsResult3 == actualResult3);
+        Assertions.assertEquals(countWordsResult1, actualResult1);
+        Assertions.assertEquals(countWordsResult2, actualResult2);
+        Assertions.assertEquals(countWordsResult3, actualResult3);
     }
 
     @Test
-    public void textReader() {
-
-    }
-
-    @Test
-    public void printer() {
+    public void printerTest() {
         Reader.occurrenceRepeat.put("Hello", 2);
         Reader.occurrenceRepeat.put("World", 3);
         Reader.printer();
@@ -43,13 +38,13 @@ public class ReaderTest {
         int count = 0;
         for (Map.Entry<String, Integer> entry : Reader.occurrenceRepeat.entrySet()) {
             String printerResult = entry.getKey() + " - " + entry.getValue();
-            Assertions.assertTrue(printerResult.equals(actualResult[count]));
+            Assertions.assertEquals(printerResult, actualResult[count]);
             count++;
         }
     }
 
     @Test
-    public void splitter() {
+    public void splitterTest() {
         String line = "Hello, World!";
         Reader.splitter(line);
 
