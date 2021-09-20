@@ -18,11 +18,16 @@ import java.util.stream.Stream;
  */
 
 public class Task2 {
-    public final static List<String> badWords = Arrays.asList("не", "умею", "пока");
-    public final static String text = "Я не умею работать не со умею StreamAPI";
+    public static List<String> badWords;
+    public static String text;
 
     public static void main(String[] args) {
+        initData();
         createBadWordsDetectingStream(text, badWords);
+    }
+    public static void initData(){
+        badWords = Arrays.asList("не", "умею", "пока");
+        text = "Я не умею работать не со умею StreamAPI";
     }
 
     public static Stream<String> createBadWordsDetectingStream(String text, List<String> badWords) {
