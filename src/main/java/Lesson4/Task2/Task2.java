@@ -24,11 +24,19 @@ public class Task2 {
     public static void main(String[] args) {
         initPredicates();
         disjunctAll(predicates);
+        IntPredicate intPredicate = disjunctAll(predicates);
+
+        System.out.println("2: " + intPredicate.test(2));
+        System.out.println("3: " + intPredicate.test(3));
+        System.out.println("5: " + intPredicate.test(5));
+        System.out.println("7: " + intPredicate.test(7));
+        System.out.println("10: " + intPredicate.test(10));
+        System.out.println("15: " + intPredicate.test(15));
     }
 
     public static void initPredicates() {
         IntPredicate isEven = value -> value % 2 == 0;
-        IntPredicate isNative = value -> LongStream.rangeClosed(2, value / 2).noneMatch(i -> value % i == 0);
+        IntPredicate isNative = value -> value == 15;
 
         predicates.add(isNative);
         predicates.add(isEven);
