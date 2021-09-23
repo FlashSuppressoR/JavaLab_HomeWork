@@ -5,9 +5,9 @@ import java.util.List;
 public class Department {
     private String name;
     private String code;
-    private List<Employees> employees;
+    private List<Employee> employees;
 
-    public Department(String name, String code, List<Employees> employees) {
+    public Department(String name, String code, List<Employee> employees) {
         this.name = name;
         this.code = code;
         this.employees = employees;
@@ -29,11 +29,11 @@ public class Department {
         this.code = code;
     }
 
-    public List<Employees> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<Employees> employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 }

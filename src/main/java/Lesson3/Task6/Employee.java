@@ -1,7 +1,7 @@
 package Lesson3.Task6;
 
-public class Employees {
-    public Employees(String name, long salary) {
+public class Employee {
+    public Employee(String name, long salary) {
         this.name = name;
         this.salary = salary;
     }

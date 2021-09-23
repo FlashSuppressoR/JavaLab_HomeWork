@@ -23,7 +23,7 @@ public class Task2 {
 
     public static void main(String[] args) {
         initData();
-        createBadWordsDetectingStream(text, badWords);
+        System.out.println(createBadWordsDetectingStream(text, badWords).collect(Collectors.toList()));
     }
     public static void initData(){
         badWords = Arrays.asList("не", "умею", "пока");
@@ -32,9 +32,6 @@ public class Task2 {
 
     public static Stream<String> createBadWordsDetectingStream(String text, List<String> badWords) {
         List<String> wordsList = Arrays.asList(text.split(" "));
-        Stream<String> stream = wordsList.stream();
-        System.out.println(stream.filter(badWords::contains).sorted().distinct().collect(Collectors.toList()));
-
-        return stream;
+        return wordsList.stream().filter(badWords::contains).sorted().distinct();
     }
 }

@@ -41,20 +41,18 @@ public class Task4 {
     static long number;
 
     public static void main(String[] args) {
-        start();
-        System.out.println("factorial value = " + factorial(number));
+        enterNumb();
+        System.out.println("factorial value = " + getFactorial(number));
     }
 
-    public static void start() {
+    public static void enterNumb() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input a number: ");
-        number = scanner.nextInt();
+        number = scanner.nextLong();
     }
 
-    public static long factorial(long n) {
-        if (n == 0) {
-            return 1;
-        }
+    public static long getFactorial(long n) {
+
         return LongStream.rangeClosed(2, n).reduce(1, (x, y) -> x * y);
     }
 }

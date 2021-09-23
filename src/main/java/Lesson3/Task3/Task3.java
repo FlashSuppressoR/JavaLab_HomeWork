@@ -25,22 +25,21 @@ import java.util.stream.IntStream;
  * [75, 90]
  */
 public class Task3 {
-    private static final IntStream evenStream = IntStream.of(30, 60, 70, 80, 90);
-    private static final IntStream oddStream = IntStream.of(1, 13, 75, 77, 99);
+    private static final IntStream EVEN_STREAM = IntStream.of(30, 60, 70, 80, 90);
+    private static final IntStream ODD_STREAM = IntStream.of(1, 13, 75, 77, 99);
 
     public static void main(String[] args) {
-        start();
+        showSortedDigits();
     }
 
-    public static void start() {
-        List<Integer> list = createFilteringStream(evenStream, oddStream).boxed().collect(Collectors.toList());
+    public static void showSortedDigits() {
+        List<Integer> list = createFilteringStream(EVEN_STREAM, ODD_STREAM).boxed().collect(Collectors.toList());
         System.out.println(list);
     }
 
     public static IntStream createFilteringStream(IntStream evenStream, IntStream oddStream) {
-        IntStream intStream = IntStream.concat(evenStream, oddStream).filter(s -> (s % 3) == 0 && (s % 5) == 0)
-                .sorted().skip(2);
 
-        return intStream;
+        return IntStream.concat(evenStream, oddStream).filter(s -> (s % 3) == 0 && (s % 5) == 0)
+                .sorted().skip(2);
     }
 }

@@ -3,7 +3,6 @@ package Lesson3.Task7;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * You have two classes:
@@ -58,8 +57,8 @@ import java.util.stream.Collectors;
  */
 public class Task7 {
     static List<Account> accountList = new ArrayList<>();
-    static List<Transaction> list1 = new ArrayList<>();
-    static List<Transaction> list2 = new ArrayList<>();
+    static List<Transaction> firstListTransactions = new ArrayList<>();
+    static List<Transaction> secondListTransactions = new ArrayList<>();
 
     /**
      * Calculates the general sum of canceled transactions for all non empty accounts in the list
@@ -71,7 +70,6 @@ public class Task7 {
         System.out.println(calcSumOfCanceledTransOnNonEmptyAccounts(accountList));
     }
 
-    //Актуально ли сейчас работать с Date (согласно условия)? Почему не Calendar?
     public static void initTransactionsList() {
         Transaction transaction1for1 = new Transaction("774cedda-9cde-4f53-8bc2-5b4d4859772a",
                 State.CANCELED, 1000L, new Date(2016, 12, 12, 18, 30, 05));
@@ -84,28 +82,27 @@ public class Task7 {
         Transaction transaction3for2 = new Transaction("f8047f86-89e7-4226-8b75-74c55a4d7e31",
                 State.CANCELED, 12000L, new Date(2016, 12, 12, 18, 10, 15));
 
-        list1.add(transaction1for1);
-        list1.add(transaction2for1);
-        list2.add(transaction1for2);
-        list2.add(transaction2for2);
-        list2.add(transaction3for2);
+        firstListTransactions.add(transaction1for1);
+        firstListTransactions.add(transaction2for1);
+        secondListTransactions.add(transaction1for2);
+        secondListTransactions.add(transaction2for2);
+        secondListTransactions.add(transaction3for2);
     }
 
     public static void initAccountsList() {
-        Account account1 = new Account("1001", 0L, list1);
-        Account account2 = new Account("1002", 8000L, list2);
+        Account account1 = new Account("1001", 0L, firstListTransactions);
+        Account account2 = new Account("1002", 8000L, secondListTransactions);
 
         accountList.add(account1);
         accountList.add(account2);
     }
 
     public static long calcSumOfCanceledTransOnNonEmptyAccounts(List<Account> accounts) {
-        long calcSum = accounts.stream()
+
+        return accounts.stream()
                 .filter(account -> account.balance > 0)
                 .flatMap(account -> account.getTransactions().stream()
                         .filter(transaction -> transaction.state == State.CANCELED)).mapToLong(p -> p.sum).sum();
-
-        return calcSum;
     }
 }
 

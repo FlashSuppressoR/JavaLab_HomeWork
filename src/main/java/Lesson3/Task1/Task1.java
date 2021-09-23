@@ -40,14 +40,14 @@ public class Task1 {
     static long number;
 
     public static void main(String[] args) {
-        start();
+        getNumb();
+        System.out.println(isPrime(number));
     }
 
-    public static void start() {
+    public static void getNumb() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input a number: ");
-        number = scanner.nextInt();
-        System.out.println(isPrime(number));
+        number = scanner.nextLong();
     }
 
     public static boolean isPrime(final long number) {

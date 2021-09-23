@@ -48,14 +48,13 @@ public class Task5 {
     public static void readStartEndRanges() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Start range:");
-        start = scanner.nextInt();
+        start = scanner.nextLong();
         System.out.println("Enter End range:");
-        end = scanner.nextInt();
+        end = scanner.nextLong();
     }
 
     public static long sumOfOddNumbersInRange(long start, long end) {
-        long sum = LongStream.rangeClosed(start, end).filter(x -> x % 2 != 0).sum();
 
-        return sum;
+        return LongStream.rangeClosed(start, end).filter(x -> x % 2 != 0).sum();
     }
 }

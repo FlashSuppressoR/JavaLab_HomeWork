@@ -12,8 +12,8 @@ public class Task7Test {
 
     @Test
     public void calcSumOfCanceledTransOnNonEmptyAccountsTest() {
-        Account account1 = new Account("1001", 0L, list1);
-        Account account2 = new Account("1002", 8000L, list2);
+        Account account1 = new Account("1001", 0L, firstListTransactions);
+        Account account2 = new Account("1002", 8000L, secondListTransactions);
         accountList.add(account1);
         accountList.add(account2);
 
@@ -25,10 +25,10 @@ public class Task7Test {
                 State.FINISHED, 32000L, new Date(2016, 12, 12, 17, 30, 55));
         Transaction transaction2for2 = new Transaction("f8047f86-89e7-4226-8b75-74c55a4d7e31",
                 State.CANCELED, 9000L, new Date(2016, 12, 12, 18, 10, 15));
-        list1.add(transaction1for1);
-        list1.add(transaction2for1);
-        list2.add(transaction1for2);
-        list2.add(transaction2for2);
+        firstListTransactions.add(transaction1for1);
+        firstListTransactions.add(transaction2for1);
+        secondListTransactions.add(transaction1for2);
+        secondListTransactions.add(transaction2for2);
 
         long produceSumResult = calcSumOfCanceledTransOnNonEmptyAccounts(accountList);
         long actualSumResult = 9000;
