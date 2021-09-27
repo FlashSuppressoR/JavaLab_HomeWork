@@ -10,9 +10,9 @@ public class Task4Test {
     public void productOfSquaresOfNumbsTest() {
         Task4.numbers = Arrays.asList(1, 2, 3, 4);
 
-        long produceResult = Task4.productOfSquaresOfNumbs();
-        long actualResult = 576L;
+        long actualResult = Task4.productOfSquaresOfNumbs();
+        long expectedResult = 576L;
 
-        Assertions.assertEquals(actualResult, produceResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 }

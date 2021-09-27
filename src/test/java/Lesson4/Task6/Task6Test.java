@@ -13,10 +13,10 @@ public class Task6Test {
         secondIntArg = 3;
         thirdIntArg = 4;
 
-        int produceResult = firstFunction();
-        int actualResult = 76;
+        int actualResult = firstFunction();
+        int expectedResult = 76;
 
-        Assertions.assertEquals(actualResult, produceResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @Test
@@ -26,9 +26,9 @@ public class Task6Test {
         thirdStringArg = "third";
         fourthStringArg = "fourth";
 
-        String produceResult = secondFunction();
-        String actualResult = "firstTHIRDsecondFOURTH";
+        String actualResult = secondFunction();
+        String expectedResult = "firstTHIRDsecondFOURTH";
 
-        Assertions.assertEquals(actualResult, produceResult);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 }
